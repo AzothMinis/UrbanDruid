@@ -143,8 +143,9 @@
     gap:0.85rem;
     width:100%;
     max-width:380px;
+    margin-bottom:2rem;
     opacity:0;
-    animation:riseIn 1s ease-out 1.45s forwards;
+    animation:riseIn 1s ease-out 0.95s forwards;
   }
 
   .btn{
@@ -186,7 +187,6 @@
   }
 
   .knock{
-    margin:0.5rem 0 1.75rem;
     font-size:0.85rem;
     color:var(--parchment-dim);
     letter-spacing:0.03em;
@@ -194,13 +194,112 @@
     animation:riseIn 1s ease-out 1.6s forwards;
   }
   .knock strong{color:var(--parchment);font-weight:500;}
+  .knock-top{
+    margin:0 0 2.2rem;
+    animation-delay:0.7s;
+  }
+
+  /* ---------- Category menu ---------- */
+  .menu{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:0.6rem;
+    margin-bottom:2.6rem;
+    opacity:0;
+    animation:riseIn 1s ease-out 1.15s forwards;
+  }
+
+  .menu-item{
+    background:rgba(242,236,249,0.03);
+    border:1px solid rgba(201,168,255,0.22);
+    border-radius:3px;
+    overflow:hidden;
+  }
+
+  .menu-item summary{
+    list-style:none;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:1rem;
+    padding:1rem 1.2rem;
+    cursor:pointer;
+    font-family:'Cinzel', serif;
+    font-weight:600;
+    font-size:0.98rem;
+    letter-spacing:0.02em;
+    color:var(--parchment);
+    -webkit-tap-highlight-color:transparent;
+    transition:background 0.2s ease;
+  }
+  .menu-item summary::-webkit-details-marker{display:none;}
+  .menu-item summary::marker{content:'';}
+
+  .menu-item summary:hover{
+    background:rgba(201,168,255,0.06);
+  }
+
+  .menu-item summary::after{
+    content:'';
+    flex-shrink:0;
+    width:10px;
+    height:10px;
+    border-right:2px solid var(--city-blue);
+    border-bottom:2px solid var(--city-blue);
+    transform:rotate(45deg);
+    transition:transform 0.3s ease;
+  }
+  .menu-item[open] summary::after{
+    transform:rotate(-135deg);
+  }
+  .menu-item[open] summary{
+    border-bottom:1px solid rgba(201,168,255,0.22);
+  }
+
+  .menu-panel{
+    padding:0.9rem 1.2rem 1.2rem;
+    text-align:left;
+  }
+
+  .menu-note{
+    font-size:0.88rem;
+    color:var(--parchment-dim);
+    font-weight:300;
+    line-height:1.6;
+  }
+
+  .sub-list{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:0.75rem;
+  }
+  .sub-list li{
+    font-size:0.92rem;
+    font-weight:400;
+    color:var(--parchment);
+    padding-bottom:0.75rem;
+    border-bottom:1px solid rgba(242,236,249,0.08);
+  }
+  .sub-list li:last-child{
+    border-bottom:none;
+    padding-bottom:0;
+  }
+  .sub-note{
+    display:block;
+    margin-top:0.25rem;
+    font-size:0.78rem;
+    font-weight:300;
+    color:var(--parchment-dim);
+  }
 
   /* ---------- Orgonite section ---------- */
   .craft{
     margin-top:5rem;
     width:100%;
     opacity:0;
-    animation:riseIn 1s ease-out 1.8s forwards;
+    animation:riseIn 1s ease-out 1.35s forwards;
   }
   .craft-label{
     font-family:'Cinzel',serif;
@@ -262,20 +361,96 @@
 
   <h1>Website coming <span>soon.</span></h1>
 
-  <div class="divider"></div>
-
-  <p class="knock">Standing right outside? <strong>Just knock on the window</strong> — we're probably in.</p>
+  <p class="knock knock-top">Standing right outside? <strong>Just knock on the window</strong> — I'm probably in.</p>
 
   <div class="actions">
     <a class="btn btn-primary" href="https://www.etsy.com/shop/UrbanDruidGB" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h12M9 3v18M6 21h12M6 9h5M6 15h5"/></svg>
-      Visit our Etsy store
+      Visit the Etsy store
+    </a>
+    <a class="btn btn-ghost" href="mailto:urbandruiduk@gmail.com">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v16H4z"/><path d="M4 6l8 7 8-7"/></svg>
+      Email
     </a>
     <a class="btn btn-ghost" href="sms:07455629785">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-      Text us — 07455 629785
+      Text — 07455 629785
     </a>
   </div>
+
+  <nav class="menu" aria-label="Product categories">
+
+    <details class="menu-item">
+      <summary>About</summary>
+      <div class="menu-panel">
+        <p class="menu-note">More about Urban Druid coming soon.</p>
+      </div>
+    </details>
+
+    <details class="menu-item">
+      <summary>Orgonite</summary>
+      <div class="menu-panel">
+        <ul class="sub-list">
+          <li>Pyramids</li>
+          <li>Charging Plates</li>
+          <li>Pendants</li>
+          <li>Venus Tear</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="menu-item">
+      <summary>Tensor Rings</summary>
+      <div class="menu-panel">
+        <p class="menu-note">Details coming soon.</p>
+      </div>
+    </details>
+
+    <details class="menu-item">
+      <summary>Lakhovsky Jewelry</summary>
+      <div class="menu-panel">
+        <ul class="sub-list">
+          <li>Bracelets</li>
+          <li>Necklaces</li>
+          <li>Pet Collar</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="menu-item">
+      <summary>Colloidal Minerals</summary>
+      <div class="menu-panel">
+        <ul class="sub-list">
+          <li>Copper</li>
+          <li>Zinc</li>
+          <li>Magnesium</li>
+          <li>Silver</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="menu-item">
+      <summary>Dowsing Rods</summary>
+      <div class="menu-panel">
+        <p class="menu-note">Details coming soon.</p>
+      </div>
+    </details>
+
+    <details class="menu-item">
+      <summary>Services</summary>
+      <div class="menu-panel">
+        <ul class="sub-list">
+          <li>
+            Energy Healing
+            <span class="sub-note">Reiki, Quantum Touch &amp; Theta Healing</span>
+          </li>
+          <li>Geopathic Stress Testing</li>
+          <li>Tarot</li>
+        </ul>
+      </div>
+    </details>
+
+  </nav>
 
   <div class="craft">
     <div class="craft-frame">
@@ -285,7 +460,7 @@
 </main>
 
 <footer>
-  Urban Druid &nbsp;·&nbsp; urbandruid.co.uk &nbsp;·&nbsp; site under construction
+  © UrbanDruid
 </footer>
 
 </body>
